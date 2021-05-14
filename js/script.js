@@ -22,10 +22,23 @@ snake.forEach(snakePart => {
     ctx.strokeRect(snakePart.x , snakePart.y , 10 , 10)
 })
 
-let randomNumber = (max , min) => Math.round((Math.random() * (max-min) + min) /10) * 10
-let foodX = randomNumber(0 , gameCanvas.width -10);
-let foodY = randomNumber(0 , gameCanvas.height -10);
+let foodX;
+let foodY;
 
+let randomNumber = (max , min) => Math.round((Math.random() * (max-min) + min) /10) * 10
+
+let createFood = () => {
+    foodX = randomNumber(0 , gameCanvas.width -10);
+    foodY = randomNumber(0 , gameCanvas.height -10);
+
+    snake.forEach(snakePart => {
+        if ( snakePart.x == foodX && snakePart.y == foodY ) {
+            createFood()
+        }
+    })
+}
+
+createFood()
 
 ctx.fillStyle = 'red';
 ctx.strokeStyle = 'black';
