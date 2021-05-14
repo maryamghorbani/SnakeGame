@@ -21,3 +21,14 @@ snake.forEach(snakePart => {
     ctx.fillRect(snakePart.x , snakePart.y , 10 ,10);
     ctx.strokeRect(snakePart.x , snakePart.y , 10 , 10)
 })
+
+let randomNumber = (max , min) => Math.round((Math.random() * (max-min) + min) /10) * 10
+let foodX = randomNumber(0 , gameCanvas.width -10);
+let foodY = randomNumber(0 , gameCanvas.height -10);
+
+
+ctx.fillStyle = 'red';
+ctx.strokeStyle = 'black';
+
+ctx.fillRect(foodX , foodY, 10, 10)
+ctx.strokeRect(foodX , foodY, 10, 10)
