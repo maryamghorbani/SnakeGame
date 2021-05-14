@@ -3,3 +3,7 @@
     flex-direction: column;
     align-items: center;
 }
+#score {
+    font-size: 4em;
+    font-family: sans-serif;
+}
