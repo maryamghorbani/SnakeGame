@@ -127,16 +127,16 @@ let advanceSnake = () => {
 
 let drawSnake = () => snake.forEach(drawSnakePart)
 let drawSnakePart = snakePart => {
-    ctx.fillStyle = 'lightgreen';
-    ctx.strokeStyle = 'black'
+    ctx.fillStyle = 'yellow';
+    ctx.strokeStyle = 'darkgreen'
 
     ctx.fillRect(snakePart.x , snakePart.y , 10 , 10);
     ctx.strokeRect(snakePart.x , snakePart.y , 10 , 10);
 }
 
 let drawFood = () => {
-    ctx.fillStyle = 'red';
-    ctx.strokeStyle = 'darkred'
+    ctx.fillStyle = 'lightblue';
+    ctx.strokeStyle = 'darkblue'
 
     ctx.fillRect(foodX , foodY , 10 , 10)
     ctx.strokeRect(foodX , foodY , 10 , 10)
