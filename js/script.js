@@ -22,11 +22,11 @@ function changeDirection(event) {
     }
     if(keyPressed == UP_KEY) {
         dx = 0;
-        dy = 10;
+        dy = -10;
     }
     if(keyPressed == DOWN_KEY) {
         dx = 0;
-        dy = -10;
+        dy = 10;
     }
 }
 
@@ -78,7 +78,7 @@ let createFood = () => {
 }
 
 let advanceSnake = () => {
-    const head = { x : snake[0].x + dx , y : snake[0].y - dy}
+    const head = { x : snake[0].x + dx , y : snake[0].y + dy}
 
     snake.unshift(head);
 
