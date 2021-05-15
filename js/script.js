@@ -53,7 +53,9 @@ let score = 0;
 
 
 function main() {
-    // game over
+
+    if (didGameEnd()) return;
+
     setTimeout(() => {
         changingDirection = false;
         clearCanvas()
@@ -63,6 +65,16 @@ function main() {
 
         main();
     }, 100);
+}
+
+
+function didGameEnd() {
+    const hitLeftWall = snake[0].x < 0;
+    const hitRightWall = snake[0].x > gameCanvas.width - 10;
+    const hitTopWall = snake[0].y < 0;
+    const hitDownWall = snake[0].y > gameCanvas.height - 10;
+
+    return hitLeftWall || hitRightWall || hitTopWall ||  hitDownWall ;
 }
 
 
@@ -97,7 +109,7 @@ let advanceSnake = () => {
         document.getElementById('score').innerHTML = score;
 
         createFood();
-        
+
     } else {
         snake.pop()
     }
