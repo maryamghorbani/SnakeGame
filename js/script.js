@@ -54,7 +54,10 @@ let score = 0;
 
 function main() {
 
-    if (didGameEnd()) return;
+    if (didGameEnd()) {
+        document.getElementById('score').innerHTML = 'GAME OVER!';
+        return;
+    }
 
     setTimeout(() => {
         changingDirection = false;
@@ -69,6 +72,11 @@ function main() {
 
 
 function didGameEnd() {
+
+    for (let i = 1; i < snake.length; i++) {
+        if (snake[0].x == snake[i].x && snake[0].y == snake[i].y) return true;
+    }
+
     const hitLeftWall = snake[0].x < 0;
     const hitRightWall = snake[0].x > gameCanvas.width - 10;
     const hitTopWall = snake[0].y < 0;
