@@ -2,6 +2,8 @@ const gameCanvas = document.getElementById("gameCanvas");
 
 const ctx = gameCanvas.getContext('2d');
 
+let changingDirection = false;
+
 document.addEventListener('keydown', changeDirection)
 
 function changeDirection(event) {
@@ -10,21 +12,24 @@ function changeDirection(event) {
     const UP_KEY = 38;
     const DOWN_KEY = 40;
 
+    if (changingDirection) return;
+    changingDirection = true;
+
     const keyPressed = event.keyCode;
 
-    if(keyPressed == LEFT_KEY) {
+    if(keyPressed == LEFT_KEY && dx != 10) {
         dx = -10;
         dy = 0;
     }
-    if(keyPressed == RIGHT_KEY) {
+    if(keyPressed == RIGHT_KEY && dx != -10) {
         dx = 10;
         dy = 0;
     }
-    if(keyPressed == UP_KEY) {
+    if(keyPressed == UP_KEY && dy != 10) {
         dx = 0;
         dy = -10;
     }
-    if(keyPressed == DOWN_KEY) {
+    if(keyPressed == DOWN_KEY && dy != -10) {
         dx = 0;
         dy = 10;
     }
@@ -47,6 +52,7 @@ let dy = 0;
 function main() {
     // game over
     setTimeout(() => {
+        changingDirection = false;
         clearCanvas()
         drawFood()
         advanceSnake()
