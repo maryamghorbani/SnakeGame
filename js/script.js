@@ -45,8 +45,11 @@ let snake = [
 
 let foodX;
 let foodY;
+
 let dx = 10;
 let dy = 0;
+
+let score = 0;
 
 
 function main() {
@@ -88,7 +91,16 @@ let advanceSnake = () => {
 
     snake.unshift(head);
 
-    snake.pop()
+    if (head.x == foodX && head.y == foodY) {
+
+        score += 10;
+        document.getElementById('score').innerHTML = score;
+
+        createFood();
+        
+    } else {
+        snake.pop()
+    }
 
 }
 
