@@ -1,8 +1,25 @@
 const gameCanvas = document.getElementById("gameCanvas");
-
 const ctx = gameCanvas.getContext('2d');
-
 let changingDirection = false;
+let snake = [
+    { x : 150 , y : 150 },
+    { x : 140 , y : 150 },
+    { x : 130 , y : 150 },
+    { x : 120 , y : 150 },
+    { x : 110 , y : 150 },
+]
+// food's location
+let foodX;
+let foodY;
+
+// snake path
+ let dx = 10;
+let dy = 0;
+
+// game total score
+let score = 0;
+
+
 
 document.addEventListener('keydown', changeDirection)
 
@@ -34,22 +51,6 @@ function changeDirection(event) {
         dy = 10;
     }
 }
-
-let snake = [
-    { x : 150 , y : 150 },
-    { x : 140 , y : 150 },
-    { x : 130 , y : 150 },
-    { x : 120 , y : 150 },
-    { x : 110 , y : 150 },
-]
-
-let foodX;
-let foodY;
-
-let dx = 10;
-let dy = 0;
-
-let score = 0;
 
 
 function main() {
